@@ -1,5 +1,13 @@
 .container {
-    div {
-        font-size: .16rem;
-    }
+  height: 100%;
+}
+
+nz-content {
+  margin: 0 16px;
+}
+
+.inner-content {
+  padding: 24px;
+  background: #fff;
+  min-height: 360px;
 }

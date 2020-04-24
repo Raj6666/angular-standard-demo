@@ -6,10 +6,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 // components
 import { AppComponent } from './app.component';
-import { IndexComponent } from './index/index.component';
 import { ErrorHandlerComponent } from './errorHandler/errorHandler.component';
 // modules
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+import { IndexModule } from './index/index.module';
 // services
 import { SimpleHttpInterceptor } from '../services/interceptor.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -25,7 +25,6 @@ registerLocaleData(zh);
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent,
     ErrorHandlerComponent
   ],
   imports: [
@@ -34,6 +33,7 @@ registerLocaleData(zh);
     AppRoutingModule,
     HttpClientModule,
     NgZorroAntdModule,
+    IndexModule,
     ...MOCKMODULE
   ],
   providers: [

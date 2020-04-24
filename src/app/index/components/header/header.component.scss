@@ -1,0 +1,38 @@
+.trigger {
+  font-size: 18px;
+  padding: 15px;
+  cursor: pointer;
+  color: #FFF;
+  transition: background-color 0.3s;
+}
+
+.trigger:hover {
+  background-color: rgba(20, 104, 165, 0.8);
+}
+
+nz-header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(45deg, #2469DF, #1E92F5);
+  padding: 0;
+}
+
+.wrapper {
+  color: #fff;
+  .item {
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .button{
+    padding: 0 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .button:hover{
+    cursor: pointer;
+    background-color: rgba(20, 104, 165, 0.8);
+  }
+}
