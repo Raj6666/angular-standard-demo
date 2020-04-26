@@ -2,19 +2,19 @@
  * @Descripttion: 
  * @version: 
  * @Author: Husiyuan
- * @Date: 2020-04-24 17:53:48
+ * @Date: 2020-04-26 12:05:39
  * @LastEditors: Husiyuan
- * @LastEditTime: 2020-04-26 12:04:21
+ * @LastEditTime: 2020-04-26 13:04:06
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
+import { TenantComponent } from './tenant.component';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: TenantComponent
   }
 ];
 
@@ -23,6 +23,6 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomeComponent]
+  declarations: [TenantComponent]
 })
-export class HomeModule { }
+export class TenantModule { }

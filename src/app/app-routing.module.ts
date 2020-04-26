@@ -4,22 +4,15 @@
  * @Author: Husiyuan
  * @Date: 2020-04-24 16:10:32
  * @LastEditors: Husiyuan
- * @LastEditTime: 2020-04-24 16:18:57
+ * @LastEditTime: 2020-04-26 14:13:24
  */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { ErrorHandlerComponent } from './errorHandler/errorHandler.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/index', pathMatch: 'full' }, // 根路径默认跳转至首页
+  { path: '', redirectTo: '/index/tenant', pathMatch: 'full' }, // 根路径默认跳转至首页
   { path: 'index',  loadChildren: './index/index.module#IndexModule'},
-  // { path: 'index', children: [
-  //   {
-  //     path: '',
-  //     loadChildren: './index/index.module#IndexModule',
-  //     pathMatch: 'full', // 欢迎页模块
-  //   }]
-  // },
   { path: 'error', component: ErrorHandlerComponent }, // error页面
   { path: '**', component: ErrorHandlerComponent } // 404找不到页面跳转error页面
 ];

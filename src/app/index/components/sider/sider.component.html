@@ -4,7 +4,7 @@
  * @Author: Husiyuan
  * @Date: 2020-04-24 10:53:00
  * @LastEditors: Husiyuan
- * @LastEditTime: 2020-04-24 16:44:50
+ * @LastEditTime: 2020-04-26 12:20:55
  -->
 <nz-sider nzCollapsible [nzCollapsed]="isCollapsed" [nzTrigger]="null" id="siderContainer" [nzWidth]="230">
   <div class="logo">
@@ -14,8 +14,8 @@
   <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
     <li nz-submenu nzTitle="系统管理" nzIcon="setting" [nzOpen]="currentMenu == 1" (nzOpenChange)="currentMenu = 1">
       <ul>
-        <li nz-menu-item><i nz-icon nzType="contacts" nzTheme="outline"></i>租户管理</li>
-        <li nz-menu-item><i nz-icon nzType="appstore" nzTheme="outline"></i>应用管理</li>
+        <li nz-menu-item routerLink="/index/tenant"><i nz-icon nzType="contacts" nzTheme="outline"></i>租户管理</li>
+        <li nz-menu-item routerLink="/index/application"><i nz-icon nzType="appstore" nzTheme="outline"></i>应用管理</li>
         <li nz-menu-item><i nz-icon nzType="user" nzTheme="outline"></i>用户管理</li>
         <li nz-menu-item><i nz-icon nzType="team" nzTheme="outline"></i>组管理</li>
         <li nz-menu-item><i nz-icon nzType="idcard" nzTheme="outline"></i>角色管理</li>
