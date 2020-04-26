@@ -4,7 +4,7 @@
  * @Author: Husiyuan
  * @Date: 2020-04-24 16:10:32
  * @LastEditors: Husiyuan
- * @LastEditTime: 2020-04-26 15:55:23
+ * @LastEditTime: 2020-04-26 18:28:01
  */
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
@@ -13,7 +13,9 @@ import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'index', pathMatch: 'full' }, // 根路径默认跳转至首页
-  { path: 'index',  loadChildren: './index/index.module#IndexModule'},
+  // { path: 'index', loadChildren: './index/index.module#IndexModule' },
+  { path: 'index',
+  loadChildren: () => import('./index/index.module').then(m => m.IndexModule) },
   // {
   //   path: 'index',
   //   component: IndexComponent,

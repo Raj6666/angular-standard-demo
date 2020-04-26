@@ -4,7 +4,7 @@
  * @Author: Husiyuan
  * @Date: 2020-04-26 10:46:19
  * @LastEditors: Husiyuan
- * @LastEditTime: 2020-04-26 15:59:05
+ * @LastEditTime: 2020-04-26 17:14:01
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -28,21 +28,24 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        loadChildren: './index/pages/home/home.module#HomeModule', // 欢迎页模块
+        // loadChildren: './pages/home/home.module#HomeModule', // 欢迎页模块
+        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
         data: {
           breadcrumb: '欢迎页'
         },
       },
       {
         path: 'tenant',
-        loadChildren: './index/pages/tenant/tenant.module#TenantModule', // 租户管理模块
+        // loadChildren: './pages/tenant/tenant.module#TenantModule', // 租户管理模块
+        loadChildren: () => import('./pages/tenant/tenant.module').then(m => m.TenantModule),
         data: {
           breadcrumb: '租户管理'
         },
       },
       {
         path: 'application',
-        loadChildren: './index/pages/application/application.module#ApplicationModule', // 应用管理模块
+        // loadChildren: './pages/application/application.module#ApplicationModule', // 应用管理模块
+        loadChildren: () => import('./pages/application/application.module').then(m => m.ApplicationModule),
         data: {
           breadcrumb: '应用管理'
         },
