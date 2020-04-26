@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: Husiyuan
+ * @Date: 2020-04-26 18:39:21
+ * @LastEditors: Husiyuan
+ * @LastEditTime: 2020-04-26 18:50:57
+ */
 import { Component, OnInit, ElementRef } from '@angular/core';
 
 @Component({
@@ -9,6 +17,7 @@ export class BreadcrumbComponent implements OnInit {
 
   constructor(
     private elementRef: ElementRef
+
   ) { }
 
   ngOnInit() {
