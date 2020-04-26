@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: Husiyuan
+ * @Date: 2020-04-26 15:26:25
+ * @LastEditors: Husiyuan
+ * @LastEditTime: 2020-04-26 15:45:51
+ */
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
@@ -19,12 +27,20 @@ import { HttpService } from '../services/http.service';
 import { DelonMockModule } from '@delon/mock';
 import * as MOCKDATA from '../mock';
 import { environment } from '../environments/environment';
+// import { IndexComponent } from './index/index.component';
+// import { HeaderComponent } from './index/components/header/header.component';
+// import { SiderComponent } from './index/components/sider/sider.component';
+// import { BreadcrumbComponent } from './index/components/breadcrumb/breadcrumb.component';
 const MOCKMODULE = !environment.production ? [ DelonMockModule.forRoot({ data: MOCKDATA, log: true }) ] : [];
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
     AppComponent,
+    // IndexComponent,
+    // HeaderComponent,
+    // SiderComponent,
+    // BreadcrumbComponent,
     ErrorHandlerComponent
   ],
   imports: [
@@ -33,7 +49,7 @@ registerLocaleData(zh);
     AppRoutingModule,
     HttpClientModule,
     NgZorroAntdModule,
-    IndexModule,
+    // IndexModule,
     ...MOCKMODULE
   ],
   providers: [
