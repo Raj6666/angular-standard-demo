@@ -13,7 +13,6 @@ interface IBreadcrumb {
 })
 export class BreadcrumbService {
 
-  // public breadcrumbs: IBreadcrumb[];
   // 定义消息源 ——  Subject 对象，string 为消息数据类型
   urlSubject = new Subject<Array<object>>();
   // 定义监听的数据流 —— observable 的可被观察的数据流
