@@ -4,14 +4,21 @@
  * @Author: Husiyuan
  * @Date: 2020-04-23 19:51:46
  * @LastEditors: Husiyuan
- * @LastEditTime: 2020-04-26 18:50:36
+ * @LastEditTime: 2020-04-27 10:46:47
  */
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/services/http.service';
 import { CommonService } from 'src/services/common.service';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd, Params, PRIMARY_OUTLET } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { BreadcrumbService } from 'src/services/breadcrumb.service';
+
+interface IBreadcrumb {
+  label: string;
+  params: Params;
+  url: string;
+}
 
 @Component({
   selector: 'app-index',
@@ -20,7 +27,7 @@ import { filter } from 'rxjs/operators';
 })
 export class IndexComponent implements OnInit {
 
-  rooterChange: Subscription;
+  routerChange: Subscription;
   isCollapsed = false;
   user = 'admin';
 
@@ -28,12 +35,15 @@ export class IndexComponent implements OnInit {
     private http: HttpService,
     private common: CommonService,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private breadcrumbService: BreadcrumbService
   ) {
-    this.rooterChange = this.router.events.pipe(filter(event => event instanceof NavigationEnd))
+    this.routerChange = this.router.events.pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event) => {
         const root: ActivatedRoute = this.activatedRoute.root;
-        console.log(this.activatedRoute);
+        this.breadcrumbService.sendAction(
+          this.breadcrumbService.getBreadcrumbs(root)
+        );
       });
   }
 
@@ -41,6 +51,10 @@ export class IndexComponent implements OnInit {
     // this.http.get('/test').subscribe((res: any) => {
     //     this.title = res.words;
     // });
+  }
+
+  ngOnDestory() {
+    this.routerChange.unsubscribe();
   }
 
   switchCollapse(isCollapsed) {

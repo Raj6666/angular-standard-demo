@@ -4,7 +4,7 @@
  * @Author: Husiyuan
  * @Date: 2020-04-26 10:46:19
  * @LastEditors: Husiyuan
- * @LastEditTime: 2020-04-26 17:14:01
+ * @LastEditTime: 2020-04-27 11:25:02
  */
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -14,6 +14,7 @@ import { SiderComponent } from './components/sider/sider.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { RouterModule, Routes } from '@angular/router';
+import { BreadcrumbService } from '../../services/breadcrumb.service';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/index/home', pathMatch: 'full' }, // 根路径默认跳转至首页
@@ -28,26 +29,30 @@ const routes: Routes = [
       },
       {
         path: 'home',
-        // loadChildren: './pages/home/home.module#HomeModule', // 欢迎页模块
-        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
+        loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule), // 欢迎页模块
         data: {
           breadcrumb: '欢迎页'
         },
       },
       {
         path: 'tenant',
-        // loadChildren: './pages/tenant/tenant.module#TenantModule', // 租户管理模块
-        loadChildren: () => import('./pages/tenant/tenant.module').then(m => m.TenantModule),
+        loadChildren: () => import('./pages/tenant/tenant.module').then(m => m.TenantModule), // 租户管理模块
         data: {
           breadcrumb: '租户管理'
         },
       },
       {
         path: 'application',
-        // loadChildren: './pages/application/application.module#ApplicationModule', // 应用管理模块
-        loadChildren: () => import('./pages/application/application.module').then(m => m.ApplicationModule),
+        loadChildren: () => import('./pages/application/application.module').then(m => m.ApplicationModule), // 应用管理模块
         data: {
           breadcrumb: '应用管理'
+        },
+      },
+      {
+        path: 'user',
+        loadChildren: () => import('./pages/user/user.module').then(m => m.UserModule),  // 用户管理模块
+        data: {
+          breadcrumb: '用户管理'
         },
       }]
   }
@@ -64,6 +69,7 @@ const routes: Routes = [
     HeaderComponent,
     SiderComponent,
     BreadcrumbComponent
-  ]
+  ],
+  providers: [BreadcrumbService]
 })
 export class IndexModule { }

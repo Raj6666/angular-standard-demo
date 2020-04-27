@@ -12,4 +12,9 @@
       <i nz-icon nzType="home" nzTheme="fill"></i> 首页
     </a>
   </nz-breadcrumb-item>
+  <nz-breadcrumb-item *ngFor="let item of breadcrumbs">
+    <a [routerLink]="'/index' + item.url">
+     {{ item.label }}
+    </a>
+  </nz-breadcrumb-item>
 </nz-breadcrumb>
